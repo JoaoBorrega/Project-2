@@ -5,12 +5,10 @@ const typeSchema = new Schema({
     category: String,
     description: String,
     review: String,
-    mode: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
-    ],
+    mode: {
+        type: String,
+        enum: ['RPG', 'Action', 'Sports', 'Strategy']
+    },
 });
 
 module.exports = model('Type', typeSchema);

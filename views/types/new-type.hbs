@@ -13,11 +13,15 @@
         <label> Description:
             <textarea name="description" cols="30" rows="4"> </textarea>
         </label>
-        
-        <label> Review:
-            <textarea name="review" cols="30" rows="4"> </textarea>
-        </label>
-
+        <div>
+            <label for="mode">Choose the mode:</label>
+            <select name="mode" id="mode" multiple>
+            <option value="RPG">RPG</option>
+            <option value="Sports">Sports</option>
+            <option value="Strategy">Strategy</option>
+            <option value="Action">Action</option>
+            </select>
+        </div>
         <button type="submit"> Save new entry </button>
         </form>
     </div>

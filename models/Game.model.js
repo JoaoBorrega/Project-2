@@ -8,7 +8,7 @@ const gameSchema = new Schema({
     mode: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'type'
+            ref: 'Type'
         }
     ],
 });

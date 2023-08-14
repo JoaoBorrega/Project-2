@@ -17,9 +17,9 @@ router.post('/types/create', async (req,res) => {
     try {
         // Object destructuring with req.body
         // There's always a match between an input's name and a req.body property's name
-        const {action, rpg, sports, strategy} = req.body;
+        const {title, category, description, mode} = req.body;
 
-        await Type.create({action, rpg, sports, strategy});
+        await Type.create({title, category, description, mode});
         res.redirect('/types');
     }
     catch (error) {
@@ -32,6 +32,7 @@ router.post('/types/create', async (req,res) => {
 router.get('/types', async (req,res) => {
     try{
         let alltypesFromDb = await Type.find();
+        console.log(alltypesFromDb)
 
         res.render('types/types.hbs', {types: alltypesFromDb})
     }
