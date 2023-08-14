@@ -1,10 +1,27 @@
 <div>
-    <h2>Page header</h2>
+    <h2>All types</h2>
     <section>
         {{#each types}}
         <div>
             <h4>{{title}}</h4>
         </div>
+
+        <div>
+            <h4>{{type.category}}</h4>
+        </div>
+
+        <div>
+            <h4>{{type.description}}</h4>
+        </div>
+
+        <div>
+            <h4>{{type.review}}</h4>
+        </div>
+
+        <div>
+            <h4>{{type.mode}}</h4>
+        </div>
+
         {{/each}}
     </section>
     <a href="/">Home Page</a>

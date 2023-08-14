@@ -12,7 +12,7 @@ const Type = require('../models/Type.model.js')
 
 router.get('/games/create', async (req,res) => {
     try{
-        let allGamesFromDb = await Type.find()
+        let allTypesFromDb = await Type.find()
         res.render('games/new-game.hbs', {types: allTypesFromDb})
     }
     catch(error){console.log(error)}
