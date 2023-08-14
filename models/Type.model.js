@@ -8,7 +8,7 @@ const typeSchema = new Schema({
     mode: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'type'
+            ref: 'User'
         }
     ],
 });
