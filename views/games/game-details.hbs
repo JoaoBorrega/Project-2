@@ -1,0 +1,28 @@
+<div>
+    <h2>{{chosenGame.title}} details</h2>
+    <section>
+        <div>
+            <h4>Title: {{chosenGame.title}}</h4>
+            <p>Category: {{chosenGame.category}}</p>
+            <p>Description: {{chosenGame.description}}</p>
+            <p>Review: {{chosenGame.review}}</p>
+        </div>
+        <div>
+            {{#each chosenGame.mode}}
+                <div>
+                    <h4>Game title: {{this.title}}</h4>
+                    <p>Category: {{this.category}}</p>
+                    <p>Description: {{this.description}}</p>
+                    <p>Review: {{this.review}}</p>
+                </div>
+            {{/each}}
+        </div>
+        <a href="/games/{{chosenGame._id}}/edit">Edit the Game</a>
+        <br>
+        <form action="/games/{{chosenGame._id}}/delete" method="post">
+            <button type="submit">Delete</button>
+        </form>
+    </section>
+    <a href="/games">Back to games list</a>
+    <a href="/">Home Page</a>
+</div>

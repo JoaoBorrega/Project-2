@@ -1,0 +1,14 @@
+<div>
+    <h2>Games list</h2>
+    <section>
+        {{#each games}}
+        <div>
+            <h4>{{title}}</h4>
+            <a href="/games/{{_id}}">See More</a>
+        </div>
+        {{/each}}
+    </section>
+    <a href="/games/create">New game</a>
+    <a href="/types">types list</a>
+    <a href="/">Home Page</a>
+</div>
