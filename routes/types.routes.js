@@ -34,22 +34,21 @@ router.get('/types', async (req,res) => {
         let alltypesFromDb = await Type.find();
         console.log(alltypesFromDb)
 
-        let strategyGames = []
+        let strategyGames = alltypesFromDb.filter(element => element.mode === "Strategy");
+        let rpgGames = alltypesFromDb.filter(element => element.mode === "RPG");
+        let sportsGames = alltypesFromDb.filter(element => element.mode === "Sports");
+        let actionGames = alltypesFromDb.filter(element => element.mode === "Action");
 
-        let strategy = alltypesFromDb.forEach((element)=>{
-            if (element.mode === "Strategy") {
-                strategyGames.push(element)
-            }
-
-        })
-
-        console.log(strategyGames)
-
-        res.render('types/types.hbs', {types: alltypesFromDb, strategyGames})
+        res.render('types/types.hbs', {
+            types: alltypesFromDb,
+            strategyGames,
+            rpgGames,
+            sportsGames,
+            actionGames
+        });
     }
     catch(error){
         console.log(error)
     }
 })
-
 module.exports = router;

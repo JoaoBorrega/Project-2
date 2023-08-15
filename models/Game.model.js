@@ -9,6 +9,10 @@ const gameSchema = new Schema({
         type: String,
         enum: ['RPG', 'Action', 'Sports', 'Strategy']
     },
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 module.exports = model('Game', gameSchema);

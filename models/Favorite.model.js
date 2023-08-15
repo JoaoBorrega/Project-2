@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose');
 
-const favouritesSchema = new Schema({
+const favoritesSchema = new Schema({
     title: String,
     category: String,
     description: String,
@@ -11,4 +11,4 @@ const favouritesSchema = new Schema({
     },
 });
 
-module.exports = model('Favourite', favouritesSchema);
+module.exports = model('Favorite', favoritesSchema);

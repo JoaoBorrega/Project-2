@@ -8,6 +8,9 @@
         </div>
         {{/each}}
     </section>
+    <form action="/profile/{{profile._id}}/favorites/{{game._id}}" method="post">
+        <button type="submit">Add to Favorites</button>
+    </form>
     <a href="/games/create">New game</a>
     <a href="/types">types list</a>
     <a href="/">Home Page</a>

@@ -1,21 +1,67 @@
-<div>
-    <h2>All types</h2>
-<div>
-    <h2>Types list</h2>
-    <section>
-        {{#each types}}
-        <div>
-            <h4>{{mode}}</h4>
-            <a href="/types/{{_id}}">See More</a>
-        </div>
-        {{/each}}
-    </section>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Types</title>
+</head>
+<body>
+    <h1>Game Types</h1>
 
-    <hr>
-    <h1>STRATEGY:</h1>
-    {{#each strategyGames}}
-    <p>{{this.title}}</p>
-    <a href="/games/{{this._id}}">See More</a>
-    {{/each}}
+    <div>
+        <h2>Strategy Games</h2>
+        <ul>
+            {{#each strategyGames}}
+            <li>
+                <p>{{this.title}}</p>
+                <a href="/games/{{this._id}}">See More</a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div>
+        <h2>RPG Games</h2>
+        <ul>
+            {{#each rpgGames}}
+            <li>
+                <p>{{this.title}}</p>
+                {{#if this._id}}
+                <a href="/games/{{this._id}}">See More</a>
+                {{/if}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Action Games</h2>
+        <ul>
+            {{#each actionGames}}
+            <li>
+                <p>{{this.title}}</p>
+                {{#if this._id}}
+                <a href="/games/{{this._id}}">See More</a>
+                {{/if}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Sports Games</h2>
+        <ul>
+            {{#each sportsGames}}
+            <li>
+                <p>{{this.title}}</p>
+                {{#if this._id}}
+                <a href="/games/{{this._id}}">See More</a>
+                {{/if}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <a href="/types/create">New type</a>
+    <a href="/games">All games</a>
     <a href="/">Home Page</a>
-</div>
+</body>
+</html>
