@@ -97,6 +97,35 @@ router.post('/games/:gameId/edit', async (req, res) => {
     }
 })
 
+// Add to favourites
+
+router.post('/games/addFavs/:gameId/', async (req, res) => {
+    const {gameId} = req.params;
+    const currentUser = req.session.currentUser;
+    try{
+        await User.findById(currentUser);
+        await User.findByIdAndUpdate(currentUser._id, {$push: {favourites:gameId}})
+        res.redirect('/favourites')
+    }
+ catch (error) {
+    console.log(error);
+  }
+}) 
+// Delete from favourites
+
+router.post('/games/delFavs/:gameId/', async (req, res) => {
+    const {gameId} = req.params;
+    const currentUser = req.session.currentUser;
+    try{
+        await User.findById(currentUser);
+        await User.findByIdAndUpdate(currentUser._id, {$pull: {favourites:gameId}})
+        res.redirect('/favourites')
+    }
+ catch (error) {
+    console.log(error);
+  }
+}) 
+
 
 
 module.exports = router;
