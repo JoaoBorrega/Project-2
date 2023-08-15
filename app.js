@@ -39,6 +39,9 @@ app.use('/', Game);
 const Profile = require("./routes/profile.routes");
 app.use('/profile', Profile);
 
+const Favourite = require("./routes/favourites.routes");
+app.use('/', Favourite);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
