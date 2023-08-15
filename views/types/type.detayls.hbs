@@ -1,15 +1,15 @@
 <div>
-    <h2>{{chosenGame.title}} details</h2>
+    <h2>{{chosenType.title}} details</h2>
     <section>
         <div>
-            <h4>Title: {{chosenGame.title}}</h4>
-            <p>Category: {{chosenGame.category}}</p>
-            <p>Description: {{chosenGame.description}}</p>
-            <p>Review: {{chosenGame.review}}</p>
-            <p>Mode: {{chosenGame.mode}}</p>
+            <h4>Title: {{chosenType.title}}</h4>
+            <p>Category: {{chosenType.category}}</p>
+            <p>Description: {{chosenType.description}}</p>
+            <p>Review: {{chosenType.review}}</p>
+            <p>Mode: {{chosenType.mode}}</p>
         </div>
         <div>
-            {{#each chosenGame.mode}}
+            {{#each chosenType.mode}}
                 <div>
                     <h4>Game title: {{this.title}}</h4>
                     <p>Category: {{this.category}}</p>
@@ -19,12 +19,12 @@
                 </div>
             {{/each}}
         </div>
-        <a href="/games/{{chosenGame._id}}/edit">Edit the Game</a>
+        <a href="/types/{{chosenType._id}}/edit">Edit the Type</a>
         <br>
-        <form action="/games/{{chosenGame._id}}/delete" method="post">
+        <form action="/types/{{chosenType._id}}/delete" method="post">
             <button type="submit">Delete</button>
         </form>
     </section>
-    <a href="/games">Back to games list</a>
+    <a href="/types">Back to types list</a>
     <a href="/">Home Page</a>
 </div>

@@ -6,9 +6,15 @@
             <input type="text" name="title" />
         </label>
         
-        <label> Category:
-            <input type="text" name="category" />
-        </label>
+        <div>
+            <label for="category">Choose the category:</label>
+            <select name="category" id="mode" multiple>
+            <option value="1-player">1 Player</option>
+            <option value="multiplayer">Multiplayer</option>
+            <option value="cooperative">Cooperative</option>
+            <option value="remote-play">Remote Play</option>
+            </select>
+        </div>
 
         <label> Description:
             <textarea name="description" cols="30" rows="4"> </textarea>
@@ -21,9 +27,10 @@
         <div>
             <label for="mode">Choose the mode:</label>
             <select name="mode" id="mode" multiple>
-            {{#each types}}
-            <option value="{{_id}}">{{title}}</option>
-            {{/each}}
+            <option value="RPG">RPG</option>
+            <option value="Sports">Sports</option>
+            <option value="Strategy">Strategy</option>
+            <option value="Action">Action</option>
             </select>
         </div>
 
