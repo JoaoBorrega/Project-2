@@ -1,0 +1,18 @@
+<div>
+    <h2>{{chosenProfile.title}} details</h2>
+    <section>
+        <div>
+            <h4>Username: {{chosenProfile.username}}</h4>
+            <p>Email: {{chosenProfile.email}}</p>
+            <p>Password: {{chosenProfile.password}}</p>
+        </div>
+        <div>
+            {{#each chosenProfile.mode}}
+                <div>
+                    <h4>Username: {{this.username}}</h4>
+                    <p>Email: {{this.email}}</p>
+                    <p>Password: {{this.password}}</p>
+                </div>
+            {{/each}}
+    <a href="/">Home Page</a>
+</div>

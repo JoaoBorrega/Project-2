@@ -36,7 +36,11 @@ app.use('/', Type);
 const Game = require('./routes/games.routes');
 app.use('/', Game);
 
+const Profile = require("./routes/profile.routes");
+app.use('/profile', Profile);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
 module.exports = app;
+require("./error-handling")(app);

@@ -34,7 +34,18 @@ router.get('/types', async (req,res) => {
         let alltypesFromDb = await Type.find();
         console.log(alltypesFromDb)
 
-        res.render('types/types.hbs', {types: alltypesFromDb})
+        let strategyGames = []
+
+        let strategy = alltypesFromDb.forEach((element)=>{
+            if (element.mode === "Strategy") {
+                strategyGames.push(element)
+            }
+
+        })
+
+        console.log(strategyGames)
+
+        res.render('types/types.hbs', {types: alltypesFromDb, strategyGames})
     }
     catch(error){
         console.log(error)

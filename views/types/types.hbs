@@ -10,5 +10,12 @@
         </div>
         {{/each}}
     </section>
+
+    <hr>
+    <h1>STRATEGY:</h1>
+    {{#each strategyGames}}
+    <p>{{this.title}}</p>
+    <a href="/games/{{this._id}}">See More</a>
+    {{/each}}
     <a href="/">Home Page</a>
 </div>

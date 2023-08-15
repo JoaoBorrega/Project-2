@@ -8,6 +8,7 @@ const Game = require('../models/Game.model.js');
 // Require Type model
 const Type = require('../models/Type.model.js')
 
+
 // Get routes to display all the games in the db:
 
 router.get('/games/create', async (req,res) => {
@@ -47,11 +48,11 @@ router.get('/games/:gameId', async (req, res) => {
     try{
         const {gameId} = req.params;
 
-        let chosenGame = await Game.findById(gameId)
-        
-        await chosenGame.populate('mode');
+        let chosenGame = await Game.findById(gameId).populate('mode');
 
-        res.render('games/game-details', {chosenGame})
+        console.log(chosenGame)
+
+        res.render('games/game-details', chosenGame)
     }
     catch(error){console.log(error)}
 })

@@ -1,0 +1,26 @@
+<div id="login-form">
+  <h2>My Profile</h2>
+  <form action="/auth/login" method="POST">
+
+    <label> Username
+      <input type="text" name="username" placeholder="Your username" />
+    </label>
+
+    <label> Email
+      <input type="email" name="email" placeholder="Your email" />
+    </label>
+
+    <label> Password
+      <input type="password" name="password" placeholder="Your password" />
+    </label>
+
+    {{#each chosenProfile.favoriteGames}}
+      <p>{{this.name}}</p>
+    {{/each}}
+    <form action="/profile/{{chosenProfile._id}}/favorites/{{game._id}}" method="post">
+        <button type="submit">Add to Favorites</button>
+    </form>
+
+<a href="/">Home Page</a>
+
+</div>
