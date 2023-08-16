@@ -141,7 +141,7 @@ router.get('/favorites', async (req, res) => {
         console.log(error)
     }
 })
-
+/*
 // add Reviews
 router.post("/addReviews/:gameId",async (req, res)=>{
     try {
@@ -187,5 +187,5 @@ router.get('/reviews', async (req, res) => {
         console.log(error)
     }
 })
-
+*/
 module.exports = router;

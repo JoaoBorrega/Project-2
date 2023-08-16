@@ -4,6 +4,7 @@
         <p>Username: {{ username }}</p>
         <p>Email: {{ email }}</p>
     </div>
+    
     {{!-- <form method="post" action="/favorites">
         <label for="gameTitle">Add Game to Favorites:</label>
         <input type="text" id="gameTitle" name="gameTitle" required>
@@ -12,4 +13,9 @@
     <a href="/favorites">See Favorites</a>
     <a href="/logout">Logout</a>
 </body>
+{{#if userInSession}}
+    <h1>Hi, {{userInSession.username}}! This is your Profile Page  :)</h1>
+{{else}}
+    <p>Still not logged  in :( </p>
+{{/if}}
 </html>

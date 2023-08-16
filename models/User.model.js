@@ -32,11 +32,11 @@ const userSchema = new Schema(
        ref: 'Game'
       }
    ],
-   createdGames: [
-    {
-     type: Schema.Types.ObjectId, 
-     ref: 'Game'
-    }
+    createdGames: [
+      {
+      type: Schema.Types.ObjectId, 
+      ref: 'Game'
+      }
  ],
   },
   {
