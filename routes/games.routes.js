@@ -96,7 +96,7 @@ router.post('/games/:gameId/edit', async (req, res) => {
     }
 })
 
-//add favorites
+// add favorites
 router.post("/addFavorites/:gameId",async (req, res)=>{
     try {
         const {gameId} = req.params;
@@ -142,5 +142,50 @@ router.get('/favorites', async (req, res) => {
     }
 })
 
+// add Reviews
+router.post("/addReviews/:gameId",async (req, res)=>{
+    try {
+        const {gameId} = req.params;
+        const user = req.session.currentUser
+
+        await User.findByIdAndUpdate(user._id, {
+            $push: {reviews: gameId}
+        })
+
+        res.redirect(`/reviews`);
+
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+// Remove reviews
+router.post("/removeReviews/:gameId",async (req, res)=>{
+    try {
+        const {gameId} = req.params;
+        const user = req.session.currentUser
+
+        await User.findByIdAndUpdate(user._id, {
+            $pull: {reviews: gameId}
+        })
+        res.redirect(`/reviews`);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.get('/reviews', async (req, res) => {
+    try {
+        const user = req.session.currentUser
+
+        const userInfo = await User.findById(user._id).populate('favorites')
+        console.log(userInfo)
+
+        res.render('reviews/reviews', userInfo)
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 module.exports = router;

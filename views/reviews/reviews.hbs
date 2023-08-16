@@ -1,11 +1,10 @@
 
-    <h1>{{username}} Favorite Games</h1>
+    <h1>{{username}} All Reviews</h1>
     <ul>
-        {{#each favorites}}
+        {{#each reviews}}
         <li>
             <h1>{{this.title}}</h1>
-            <h2>{{this.category}}</h2>
-            <h3>{{this.mode}}</h3>
+            <h2>{{this.review}}</h2>
 
             
         <form action="/games/{{_id}}/delete" method="post">
@@ -17,4 +16,3 @@
         
     </ul>
     <a href="/">Home</a>
-    <a href="/games">Games List</a>

@@ -6,7 +6,7 @@
             <p>Category: {{category}}</p>
             <p>Description: {{description}}</p>
             {{#each reviews}}
-            <p>Review: {{this.content}}</p>
+            <p>{{this.username}} Review: {{this.content}}</p>
             {{/each}}
             <p>Mode: {{mode}}</p>
         </div>

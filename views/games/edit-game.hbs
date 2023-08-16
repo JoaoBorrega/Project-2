@@ -2,6 +2,7 @@
     <h2>Updating {{game.title}}</h2>
     <div id="celeb-create">
         <form action="/games/{{game._id}}/edit" method="post">
+        
         <label> Title:
             <input type="text" name="title" value="{{game.title}}"/>
         </label>
@@ -18,7 +19,7 @@
         </div>
         
         <label> Description:
-            <textarea name="review" cols="30" rows="4">{{game.review}}</textarea>
+            <textarea name="description" cols="30" rows="4">{{game.description}}</textarea>
         </label>
         
         <div>
