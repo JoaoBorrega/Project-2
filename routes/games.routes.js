@@ -4,16 +4,14 @@ const router = require("express").Router();
 // all your routes here
 
 const Game = require('../models/Game.model.js');
-
-// Require Type model
-const Type = require('../models/Type.model.js')
+const User = require('../models/User.model.js');
 
 
 // Get routes to display all the games in the db:
 
 router.get('/games/create', async (req,res) => {
     try{
-        let allTypesFromDb = await Type.find()
+        let allTypesFromDb = await Game.find()
         res.render('games/new-game.hbs', {types: allTypesFromDb})
     }
     catch(error){console.log(error)}
@@ -21,9 +19,10 @@ router.get('/games/create', async (req,res) => {
 
 router.post('/games/create', async (req,res)=>{
     try{
-        const {title, category, description, review, mode} = req.body;
-        await Game.create({title, category, description, review, mode})
-        res.redirect('/games');
+        const {title, category, description, mode} = req.body;
+        let newGame = await Game.create({title, category, description, mode})
+
+        res.redirect(`/games/${newGame._id}`);
     }
     catch(error){
         console.log(error)
@@ -48,7 +47,7 @@ router.get('/games/:gameId', async (req, res) => {
     try{
         const {gameId} = req.params;
 
-        let chosenGame = await Game.findById(gameId).populate('mode');
+        let chosenGame = await Game.findById(gameId).populate('reviews')
 
         console.log(chosenGame)
 
@@ -97,6 +96,34 @@ router.post('/games/:gameId/edit', async (req, res) => {
     }
 })
 
+//add favorites
+router.post("/addFavorites/:gameId",async (req, res)=>{
+    try {
+        const {gameId} = req.params;
+        const user = req.session.currentUser
+
+        await User.findByIdAndUpdate(user._id, {
+            $push: {favorites: gameId}
+        })
+        res.redirect(`/favorites`);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.get('/favorites', async (req, res) => {
+    try {
+        const user = req.session.currentUser
+
+        const userInfo = await User.findById(user._id).populate('favorites')
+        console.log(userInfo)
+
+        res.render('favorites/favorites', userInfo)
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 module.exports = router;

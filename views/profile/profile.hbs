@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>User Profile</title>
-</head>
 <body>
     <h1>Welcome to Your Profile</h1>
     <div>
-        <p>Username: {{ user.username }}</p>
-        <p>Email: {{ user.email }}</p>
+        <p>Username: {{ username }}</p>
+        <p>Email: {{ email }}</p>
     </div>
-    <form method="post" action="/favorites">
+    {{!-- <form method="post" action="/favorites">
         <label for="gameTitle">Add Game to Favorites:</label>
         <input type="text" id="gameTitle" name="gameTitle" required>
         <button type="submit">Add</button>
-    </form>
+    </form> --}}
     <a href="/favorites">See Favorites</a>
     <a href="/logout">Logout</a>
 </body>

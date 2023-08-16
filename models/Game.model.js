@@ -12,7 +12,13 @@ const gameSchema = new Schema({
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    reviews: [
+        {
+         type: Schema.Types.ObjectId, 
+         ref: 'Review'
+        }
+     ],
 });
 
 module.exports = model('Game', gameSchema);

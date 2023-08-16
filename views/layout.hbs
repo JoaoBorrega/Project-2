@@ -9,7 +9,7 @@
   </head>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">GameVerse</a>
+  <a class="navbar-brand" href="/">GameVerse</a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,7 +19,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
       </li>
-      <li class="nav-item">
+     {{!--  <li class="nav-item">
         <a class="nav-link" href="/auth/signup">SignUp</a>
       </li>
       <li class="nav-item">
@@ -27,9 +27,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/auth/logout">Logout</a>
-      </li>
+      </li> --}}
       <li class="nav-item">
-        <a class="nav-link" href="/profile/profile">Profile Page</a>
+        <a class="nav-link" href="/profile">Profile Page</a>
       </li>
 
       <li class="nav-item dropdown">
@@ -54,7 +54,7 @@
 
 </html>
 
-  <nav>
+{{!--   <nav>
     {{#if currentUser}}
       <a href="/auth/profile">{{currentUser.username}}</a>
       <a href="/auth/logout">Logout</a>
@@ -64,4 +64,4 @@
       <a href="/login">Login</a>
       <a href="/signup">Signup</a>
     {{/unless}}
-  </nav>
+  </nav> --}}

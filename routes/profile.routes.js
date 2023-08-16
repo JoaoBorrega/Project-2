@@ -2,30 +2,19 @@
 const router = require("express").Router();
 
 // Require Profile model
-const Profile = require('../models/Profile.model.js')
+const User = require('../models/User.model.js')
 
-//GET route to display all the games in the Db
-router.get('/profile', async (req,res) => {
-    try{
-        let allProfilesFromDb = await Profile.find();
-
-        res.render('profile/profile-details.hbs', {profile: allProfilesFromDb})
-    }
-    catch(error){
-        console.log(error)
-    }
-})
 
 //GET route for games details
-router.get('/profile/:profileId', async (req, res) => {
+router.get('/profile', async (req, res) => {
     try{
-        const {profileId} = req.params;
+        const user = req.session.currentUser;
 
-        let chosenProfile = await Profile.findById(profileId)
+        let chosenProfile = await User.findById(user._id)
         
-        await chosenProfile.populate('mode');
+        // await chosenProfile.populate('mode');
 
-        res.render('profile/profile', {chosenProfile})
+        res.render('profile/profile', chosenProfile)
     }
     catch(error){console.log(error)}
 })

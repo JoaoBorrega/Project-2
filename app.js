@@ -35,21 +35,18 @@ app.use("/", indexRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
-const Type = require('./routes/types.routes');
-app.use('/', Type);
+/* const Type = require('./routes/types.routes');
+app.use('/', Type); */
 
-const Game = require('./routes/games.routes');
-app.use('/', Game);
+const game = require('./routes/games.routes');
+app.use('/', game);
 
-const Profile = require("./routes/profile.routes");
-app.use('/profile', Profile);
+const profile = require("./routes/profile.routes");
+app.use('/', profile);
 
-const Favorite = require("./routes/favorites.routes");
-console.log(Favorite)
-app.use('/favorites', Favorite);
 
-const favoriteRoutes = require('./routes/favorites.routes');
-app.use('/favorites', favoriteRoutes);
+/* const favoriteRoutes = require('./routes/favorites.routes');
+app.use('/', favoriteRoutes); */
 
 const reviewsRoutes = require('./routes/reviews.routes')
 app.use('/', reviewsRoutes)

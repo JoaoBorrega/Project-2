@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Favorites</title>
-</head>
-<body>
-    <h1>Favorite Games</h1>
+
+    <h1>{{username}} Favorite Games</h1>
     <ul>
-        {{#each favoriteGames}}
+        {{#each favorites}}
         <li>
-            <h2>{{ title }}</h2>
+            <h1>{{this.title}}</h1>
+            <h2>{{this.category}}</h2>
+            <h3>{{this.mode}}</h3>
         </li>
         {{/each}}
     </ul>
     <a href="/">Home</a>
-</body>
-</html>

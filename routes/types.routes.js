@@ -6,25 +6,15 @@ const router = require("express").Router();
 const Type = require('../models/Type.model.js');
 
 
-// Get routes to display all the types in the db:
-
-router.get('/types/create', async (req,res) => {
-    res.render('types/new-type.hbs');
-});
-
-// Post rout to submit info about the created types
-router.post('/types/create', async (req,res) => {
+// GET route for displaying type details
+router.get('/types/:id', async (req, res) => {
     try {
-        // Object destructuring with req.body
-        // There's always a match between an input's name and a req.body property's name
-        const {title, category, description, mode} = req.body;
-
-        await Type.create({title, category, description, mode});
-        res.redirect('/types');
-    }
-    catch (error) {
+        const typeId = req.params.id;
+        const chosenType = await Type.findById(typeId).populate('games');
+        res.render('types/type-details.hbs', { chosenType });
+    } catch (error) {
         console.log(error);
-        res.render('types/new-type.hbs')
+        res.redirect('/types');
     }
 });
 
@@ -51,4 +41,42 @@ router.get('/types', async (req,res) => {
         console.log(error)
     }
 })
+
+
+// Route for editing a type
+router.get('/types/:id/edit', async (req, res) => {
+    try {
+        const typeId = req.params.id;
+        const chosenType = await Type.findById(typeId);
+        res.render('types/edit-type.hbs', { chosenType });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/types');
+    }
+});
+
+// Route for updating a type
+router.post('/types/:id/edit', async (req, res) => {
+    try {
+        const typeId = req.params.id;
+        res.redirect(`/types/${typeId}`);
+        
+    } catch (error) {
+        console.log(error);
+        res.redirect('/types');
+    }
+});
+
+// Route for deleting a type
+router.post('/types/:id/delete', async (req, res) => {
+    try {
+        const typeId = req.params.id;
+        // Handle the delete logic here
+        res.redirect('/types');
+    } catch (error) {
+        console.log(error);
+        res.redirect('/types');
+    }
+});
+
 module.exports = router;
