@@ -11,8 +11,8 @@ const User = require('../models/User.model.js');
 
 router.get('/games/create', async (req,res) => {
     try{
-        let allTypesFromDb = await Game.find()
-        res.render('games/new-game.hbs', {types: allTypesFromDb})
+        let allGamesFromDb = await Game.find()
+        res.render('games/new-game.hbs', {games: allGamesFromDb})
     }
     catch(error){console.log(error)}
 })
@@ -74,9 +74,9 @@ router.get('/games/:gameId/edit', async (req, res) => {
 
         let chosenGame = await Game.findById(gameId)
 
-        let allTypesFromDb = await Type.find()
+        let allGamesFromDb = await Game.find()
 
-        res.render('games/edit-game', {game: chosenGame, types: allTypesFromDb})
+        res.render('games/edit-game', {game: chosenGame, games: allGamesFromDb})
 
     }
     catch(error){
@@ -103,6 +103,23 @@ router.post("/addFavorites/:gameId",async (req, res)=>{
         const user = req.session.currentUser
 
         await User.findByIdAndUpdate(user._id, {
+            $push: {favorites: gameId}
+        })
+
+        res.redirect(`/favorites`);
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+// Remove favorites
+router.post("/removeFavorites/:gameId",async (req, res)=>{
+    try {
+        const {gameId} = req.params;
+        const user = req.session.currentUser
+
+        await User.findByIdAndRemove(user._id, {
             $push: {favorites: gameId}
         })
         res.redirect(`/favorites`);

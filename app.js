@@ -44,10 +44,6 @@ app.use('/', game);
 const profile = require("./routes/profile.routes");
 app.use('/', profile);
 
-
-/* const favoriteRoutes = require('./routes/favorites.routes');
-app.use('/', favoriteRoutes); */
-
 const reviewsRoutes = require('./routes/reviews.routes')
 app.use('/', reviewsRoutes)
 
