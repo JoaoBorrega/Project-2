@@ -107,7 +107,7 @@ router.post("/addFavorites/:gameId",async (req, res)=>{
         })
 
         res.redirect(`/favorites`);
-        
+
     } catch (error) {
         console.log(error)
     }
@@ -119,8 +119,8 @@ router.post("/removeFavorites/:gameId",async (req, res)=>{
         const {gameId} = req.params;
         const user = req.session.currentUser
 
-        await User.findByIdAndRemove(user._id, {
-            $push: {favorites: gameId}
+        await User.findByIdAndUpdate(user._id, {
+            $pull: {favorites: gameId}
         })
         res.redirect(`/favorites`);
     } catch (error) {

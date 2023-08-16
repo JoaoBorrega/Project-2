@@ -7,7 +7,11 @@
             <h2>{{this.category}}</h2>
             <h3>{{this.mode}}</h3>
 
-            <button href="" type="submit">Remove</button>
+            
+        <form action="/games/{{_id}}/delete" method="post">
+            <button type="submit">Remove</button>
+        </form>
+
         </li>
         {{/each}}
         
