@@ -3,8 +3,8 @@
     <ul>
         {{#each reviews}}
         <li>
-            <h1>{{this.title}}</h1>
-            <h2>{{this.review}}</h2>
+            <h1>{{this.author}}</h1>
+            <h2>{{this.content}}</h2>
 
             
         <form action="/games/{{_id}}/delete" method="post">

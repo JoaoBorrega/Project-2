@@ -141,7 +141,7 @@ router.get('/favorites', async (req, res) => {
         console.log(error)
     }
 })
-/*
+
 // add Reviews
 router.post("/addReviews/:gameId",async (req, res)=>{
     try {
@@ -178,8 +178,9 @@ router.get('/reviews', async (req, res) => {
     try {
         const user = req.session.currentUser
 
-        const userInfo = await User.findById(user._id).populate('favorites')
-        console.log(userInfo)
+        const userInfo = await User.findById(user._id)
+        await userInfo.populate('reviews')
+        console.log(userInfo.reviews)
 
         res.render('reviews/reviews', userInfo)
         
@@ -187,5 +188,5 @@ router.get('/reviews', async (req, res) => {
         console.log(error)
     }
 })
-*/
+
 module.exports = router;
