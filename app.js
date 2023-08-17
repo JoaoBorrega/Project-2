@@ -24,9 +24,9 @@ const app = express();
 require("./config")(app);
 
 const capitalize = require("./utils/capitalize");
-const projectName = "gameVerse";
+const projecttitle = "gameVerse";
 
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
+app.locals.appTitle = `${capitalize(projecttitle)} created with IronLauncher`;
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
@@ -47,11 +47,16 @@ app.use('/', profile);
 const reviewsRoutes = require('./routes/reviews.routes')
 app.use('/', reviewsRoutes)
 
+const images = require('./utils/img.utils')
+app.use('/', images)
+
 
 // Set up the views directory and view engine
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirtitle, 'views'));
 app.set('view engine', 'hbs');
 
+// Configure static file serving
+app.use('/uploads',express.static(path.join(__dirtitle, 'public/uploads')));
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

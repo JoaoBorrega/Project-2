@@ -6,7 +6,7 @@
             <p>Category: {{category}}</p>
             <p>Description: {{description}}</p>
             {{#each reviews}}
-            <p>{{this.author.username}} Review: {{this.content}}</p>
+            <p>{{this.author.usertitle}} Review: {{this.content}}</p>
             {{/each}}
             <p>Mode: {{mode}}</p>
             <img src="/images/{{this.image}}">
@@ -18,7 +18,7 @@
 
         <form action="/review/create/{{_id}}" method="post">
         <label for="content">Leave your Review:</label>
-        <input type="text" name="content" id="content">
+        <input type="text" title="content" id="content">
         <button type="submit">Done</button>
         </form>
 

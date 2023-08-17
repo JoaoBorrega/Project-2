@@ -94,8 +94,8 @@ router.get('/reviews', async (req, res) => {
         const userInfo = await User.findById(user._id).populate('reviews')
         // Populate the 'reviews' field within each review
         await userInfo.populate('reviews')
-        // Render the 'reviews/reviews' template with the reviews and username
-        res.render('reviews/reviews', { reviews: userInfo.reviews,username: userInfo.username })
+        // Render the 'reviews/reviews' template with the reviews and usertitle
+        res.render('reviews/reviews', { reviews: userInfo.reviews,usertitle: userInfo.usertitle })
         
     } catch (error) {
         console.log(error)

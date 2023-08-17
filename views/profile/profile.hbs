@@ -1,16 +1,14 @@
 <body>
     <h1>Welcome to Your Profile</h1>
     <div>
-        <p>Username: {{ username }}</p>
+        <p>Usertitle: {{ usertitle }}</p>
         <p>Email: {{ email }}</p>
-        {{#if profileImage}}
-        <img src="/uploads/{{currentUser._id}}/{{ profileImage }}" alt="Profile Image">
-        {{/if}}
+        <img src="/uploads/{{ chosenProfile.profileImage }}" alt="Profile Image">
     </div>
     
     {{!-- <form method="post" action="/favorites">
         <label for="gameTitle">Add Game to Favorites:</label>
-        <input type="text" id="gameTitle" name="gameTitle" required>
+        <input type="text" id="gameTitle" title="gameTitle" required>
         <button type="submit">Add</button>
     </form> --}}
     <a href="/favorites">See Favorites</a>

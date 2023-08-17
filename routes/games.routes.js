@@ -6,6 +6,7 @@ const router = require("express").Router();
 const Game = require('../models/Game.model.js');
 const User = require('../models/User.model.js');
 
+const multer = require('multer');
 
 // Get routes to display all the games in the db:
 
@@ -29,6 +30,32 @@ router.post('/games/create', async (req,res)=>{
         res.render('games/new-game.hbs')
     }
 })
+
+// profile image
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/uploads/games'); // Set the destination folder for game images
+    },
+    filetitle: (req, file, cb) => {
+        cb(null, Date.now() + '-' + file.originaltitle); // Set the filetitle for uploaded game images
+    }
+});
+
+const upload = multer({ storage: storage });
+
+router.post('/games/create', upload.single('gameImage'), async (req, res) => {
+    try {
+        const { title, category, description, mode } = req.body;
+        const gameImage = req.file.filetitle; // Get the uploaded image path
+
+        const newGame = await Game.create({ title, category, description, mode, image: gameImage });
+
+        res.redirect(`/games/${newGame._id}`);
+    } catch (error) {
+        console.log(error);
+        res.render('games/new-game.hbs');
+    }
+});
 
 //GET route to display all the games in the Db
 router.get('/games', async (req,res) => {

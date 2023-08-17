@@ -3,12 +3,12 @@
     <div id="celeb-create">
         <form action="/types/create" method="post">
         <label> Title:
-            <input type="text" name="title" />
+            <input type="text" title="title" />
         </label>
         
         <div>
             <label for="category">Choose the category:</label>
-            <select name="category" id="mode" multiple>
+            <select title="category" id="mode" multiple>
             <option value="1-player">1 Player</option>
             <option value="multiplayer">Multiplayer</option>
             <option value="cooperative">Cooperative</option>
@@ -17,12 +17,12 @@
         </div>
         
         <label> Description:
-            <textarea name="description" cols="30" rows="4"> </textarea>
+            <textarea title="description" cols="30" rows="4"> </textarea>
         </label>
 
         <div>
             <label for="mode">Choose the mode:</label>
-            <select name="mode" id="mode" multiple>
+            <select title="mode" id="mode" multiple>
             <option value="RPG">RPG</option>
             <option value="Sports">Sports</option>
             <option value="Strategy">Strategy</option>
