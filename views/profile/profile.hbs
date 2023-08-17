@@ -3,6 +3,9 @@
     <div>
         <p>Username: {{ username }}</p>
         <p>Email: {{ email }}</p>
+        {{#if profileImage}}
+        <img src="/uploads/{{currentUser._id}}/{{ profileImage }}" alt="Profile Image">
+        {{/if}}
     </div>
     
     {{!-- <form method="post" action="/favorites">

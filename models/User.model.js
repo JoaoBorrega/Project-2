@@ -37,7 +37,8 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId, 
       ref: 'Game'
       }
- ],
+    ],
+    profileImage: String
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
