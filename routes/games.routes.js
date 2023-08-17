@@ -102,9 +102,7 @@ router.post("/addFavorites/:gameId",async (req, res)=>{
         const {gameId} = req.params;
         const user = req.session.currentUser
 
-        await User.findByIdAndUpdate(user._id, {
-            $push: {favorites: gameId}
-        })
+        await User.findByIdAndUpdate(user._id, {$push: {favorites: gameId}})
 
         res.redirect(`/favorites`);
 
@@ -119,9 +117,7 @@ router.post("/removeFavorites/:gameId",async (req, res)=>{
         const {gameId} = req.params;
         const user = req.session.currentUser
 
-        await User.findByIdAndUpdate(user._id, {
-            $pull: {favorites: gameId}
-        })
+        await User.findByIdAndUpdate(user._id, {$pull: {favorites: gameId}})
         res.redirect(`/favorites`);
     } catch (error) {
         console.log(error)
@@ -136,54 +132,6 @@ router.get('/favorites', async (req, res) => {
         console.log(userInfo)
 
         res.render('favorites/favorites', userInfo)
-        
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-// add Reviews
-router.post("/addReviews/:gameId",async (req, res)=>{
-    try {
-        const {gameId} = req.params;
-        const user = req.session.currentUser
-
-        await User.findByIdAndUpdate(user._id, {
-            $push: {reviews: gameId}
-        })
-
-        res.redirect(`/reviews`);
-
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-// Remove reviews
-router.post("/removeReviews/:gameId",async (req, res)=>{
-    try {
-        const {gameId} = req.params;
-        const user = req.session.currentUser
-
-        await User.findByIdAndUpdate(user._id, {
-            $pull: {reviews: gameId}
-        })
-        res.redirect(`/reviews`);
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-router.get('/reviews', async (req, res) => {
-    try {
-        const user = req.session.currentUser
-
-        const userInfo = await User.findById(user._id)
-        await userInfo.populate('reviews')
-        console.log(userInfo.reviews)
-
-        
-        res.render('reviews/reviews', userInfo)
         
     } catch (error) {
         console.log(error)

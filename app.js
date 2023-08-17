@@ -47,6 +47,7 @@ app.use('/', profile);
 const reviewsRoutes = require('./routes/reviews.routes')
 app.use('/', reviewsRoutes)
 
+
 // Set up the views directory and view engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
