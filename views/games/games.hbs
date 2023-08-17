@@ -4,9 +4,13 @@
         {{#each games}}
         <div>
             <h4>{{title}}</h4>
+            <img src="/images/{{this.image}}">
+
             <a href="/games/{{_id}}">See More</a>
             
         </div>
+
+        <hr>
         {{/each}}
     </section>
     

@@ -5,6 +5,10 @@ const reviewSchema = new Schema({
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    game: {
+        type: Schema.Types.ObjectId,
+        ref: 'Game'
     }
 });
 

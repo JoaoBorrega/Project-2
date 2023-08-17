@@ -19,6 +19,7 @@ const gameSchema = new Schema({
          ref: 'Review'
         }
      ],
+     imagePath: String
 });
 
 module.exports = model('Game', gameSchema);

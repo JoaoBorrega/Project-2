@@ -4,15 +4,14 @@
         {{#each favorites}}
         <li>
             <h1>{{this.title}}</h1>
-            <h2>{{this.category}}</h2>
-            <h3>{{this.mode}}</h3>
+            <img src="/images/{{this.image}}">
 
-            
         <form action="/removeFavorites/{{this._id}}" method="post">
             <button type="submit">Remove</button>
         </form>
 
         </li>
+        <hr>
         {{/each}}
         
     </ul>
