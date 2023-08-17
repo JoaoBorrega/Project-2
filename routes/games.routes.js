@@ -48,6 +48,13 @@ router.get('/games/:gameId', async (req, res) => {
         const {gameId} = req.params;
 
         let chosenGame = await Game.findById(gameId).populate('reviews')
+        await chosenGame.populate({
+            path: "reviews",
+            populate: {
+                path: "author",
+                model:"User"
+            }
+        })
 
         console.log(chosenGame)
 

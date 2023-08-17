@@ -71,22 +71,9 @@ router.post("/addReviews/:gameId",async (req, res)=>{
         console.log(error)
     }
 })
+
+
 */
-// Remove reviews
-router.post("/removeReviews/:reviewId",async (req, res)=>{
-    const {reviewId} = req.params;
-    try {
-        const user = req.session.currentUser
-
-        await User.findByIdAndUpdate(user._id, {
-            $pull: {reviews: reviewId}})
-
-        res.redirect(`/reviews`);
-    } catch (error) {
-        console.log(error)
-    }
-})
-
 router.get('/reviews', async (req, res) => {
     try {
         const user = req.session.currentUser
