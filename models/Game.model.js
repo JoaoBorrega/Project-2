@@ -19,7 +19,7 @@ const gameSchema = new Schema({
          ref: 'Review'
         }
      ],
-     imagePath: String,
+     image: String,
      imageGames: String
 });
 

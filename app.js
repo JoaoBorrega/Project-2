@@ -47,16 +47,12 @@ app.use('/', profile);
 const reviewsRoutes = require('./routes/reviews.routes')
 app.use('/', reviewsRoutes)
 
-const images = require('./utils/img.utils')
-app.use('/', images)
-
-
 // Set up the views directory and view engine
-app.set('views', path.join(__dirtitle, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Configure static file serving
-app.use('/uploads',express.static(path.join(__dirtitle, 'public/uploads')));
+app.use('/uploads',express.static(path.join(__dirname, 'public/uploads')));
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
