@@ -182,6 +182,7 @@ router.get('/reviews', async (req, res) => {
         await userInfo.populate('reviews')
         console.log(userInfo.reviews)
 
+        
         res.render('reviews/reviews', userInfo)
         
     } catch (error) {
