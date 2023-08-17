@@ -21,7 +21,7 @@ router.post('/review/create/:gameId', async(req,res)=>{
 
         const newReview = await Review.create({content});
 
-        // update the Book with new review that was created
+        // update the Review with new review that was created
         const gameUpdate = await Game.findByIdAndUpdate(gameId, {$push: {reviews: newReview._id}});
 
         // add the review to the user
@@ -41,15 +41,64 @@ router.post('/review/delete/:reviewId', async (req,res)=>{
     try{
         const removedReview = await Review.findByIdAndRemove(reviewId);
 
+        const gameUpdate = await Game.findByIdAndUpdate(
+            removedReview.game,
+            { $pull: { reviews: reviewId } }
+        );
+
         await User.findByIdAndUpdate(removedReview.author, {
             $pull: {reviews: removedReview._id}
         })
 
-        res.redirect('/games');
+        res.redirect('/reviews');
     }
     catch(error){
         console.log(error);
     }
 });
+/*
+// add Reviews
+router.post("/addReviews/:gameId",async (req, res)=>{
+    try {
+        const {gameId} = req.params;
+        const user = req.session.currentUser
 
+        await User.findByIdAndUpdate(user._id, {$push: {reviews: gameId}})
+
+        res.redirect(`/reviews`);
+
+    } catch (error) {
+        console.log(error)
+    }
+})
+*/
+// Remove reviews
+router.post("/removeReviews/:reviewId",async (req, res)=>{
+    const {reviewId} = req.params;
+    try {
+        const user = req.session.currentUser
+
+        await User.findByIdAndUpdate(user._id, {
+            $pull: {reviews: reviewId}})
+
+        res.redirect(`/reviews`);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.get('/reviews', async (req, res) => {
+    try {
+        const user = req.session.currentUser
+         // Find the user by their ID and populate their reviews
+        const userInfo = await User.findById(user._id).populate('reviews')
+        // Populate the 'reviews' field within each review
+        await userInfo.populate('reviews')
+        // Render the 'reviews/reviews' template with the reviews and username
+        res.render('reviews/reviews', { reviews: userInfo.reviews,username: userInfo.username })
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
 module.exports = router;
