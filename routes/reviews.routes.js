@@ -28,6 +28,8 @@ router.post('/review/create/:gameId', async(req,res)=>{
         const userUpdate = await User.findByIdAndUpdate(user._id, {$push: {reviews: newReview._id}});
         const reviewUpdate = await Review.findByIdAndUpdate(newReview._id, {$push: {author: user._id}});
 
+        await Review.findByIdAndUpdate(newReview._id, {$push: {game: gameId}})
+
         res.redirect(`/games/${gameId}`);
 
     }
@@ -91,14 +93,18 @@ router.get('/reviews', async (req, res) => {
     try {
         const user = req.session.currentUser;
         if (user) {
-            const userInfo = await User.findById(user._id).populate({
+            const userInfo = await User.findById(user._id).populate('reviews');
+
+            await userInfo.populate({
                 path: 'reviews',
                 populate: {
                     path: 'game',
-                },
-            });
+                    model: 'Game'
+                }
+                
+            })
 
-            console.log(userInfo.reviews); // Check the reviews data
+            console.log(userInfo.reviews); 
 
             res.render('reviews/reviews', { reviews: userInfo.reviews, usertitle: userInfo.usertitle });
         } else {

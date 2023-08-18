@@ -4,7 +4,7 @@
         {{#each favorites}}
         <li class="mb-4">
             <h2>{{this.title}}</h2>
-            <img src={{this.image}} class="img-fluid" alt="Game Image">
+            <img src="{{this.image}}" class="favorite-image img-fluid" alt="Game Image">
 
             <form action="/removeFavorites/{{this._id}}" method="post">
                 <button type="submit" class="btn btn-danger mt-2">Remove</button>
@@ -16,3 +16,7 @@
     <a href="/" class="btn btn-primary">Home</a>
     <a href="/games" class="btn btn-secondary">Games List</a>
 </div>
+
+
+
+
