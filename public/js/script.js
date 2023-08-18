@@ -2,3 +2,4 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("gameVerse JS imported successfully!");
 });
+

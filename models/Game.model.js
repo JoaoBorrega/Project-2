@@ -20,7 +20,7 @@ const gameSchema = new Schema({
         }
      ],
      image: String,
-     imageGames: String
+     imageURL: String
 });
 
 module.exports = model('Game', gameSchema);

@@ -9,7 +9,7 @@ const reviewSchema = new Schema({
     game: {
         type: Schema.Types.ObjectId,
         ref: 'Game'
-    }
+    },
 });
 
 const Review = model("Review", reviewSchema);

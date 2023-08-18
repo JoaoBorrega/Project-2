@@ -1,19 +1,18 @@
-
-    <h1>{{usertitle}} Favorite Games</h1>
-    <ul>
+<div class="container text-center">
+    <h1>{{usertitle}}: Favorite Games</h1>
+    <ul class="list-unstyled">
         {{#each favorites}}
-        <li>
-            <h1>{{this.title}}</h1>
-            <img src="/images/{{this.image}}">
+        <li class="mb-4">
+            <h2>{{this.title}}</h2>
+            <img src={{this.image}} class="img-fluid" alt="Game Image">
 
-        <form action="/removeFavorites/{{this._id}}" method="post">
-            <button type="submit">Remove</button>
-        </form>
-
+            <form action="/removeFavorites/{{this._id}}" method="post">
+                <button type="submit" class="btn btn-danger mt-2">Remove</button>
+            </form>
         </li>
         <hr>
         {{/each}}
-        
     </ul>
-    <a href="/">Home</a>
-    <a href="/games">Games List</a>
+    <a href="/" class="btn btn-primary">Home</a>
+    <a href="/games" class="btn btn-secondary">Games List</a>
+</div>

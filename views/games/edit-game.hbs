@@ -1,39 +1,41 @@
-<div>
-    <h2>Updating {{game.title}}</h2>
-    <div id="celeb-create">
-        <form action="/games/{{game._id}}/edit" method="post">
-        
-        <label> Title:
-            <input type="text" title="title" value="{{game.title}}"/>
-        </label>
-        
-
-        <div>
-            <label for="category">Choose the category:</label>
-            <select title="category" id="mode" multiple>
-            <option value="1-player">1 Player</option>
-            <option value="multiplayer">Multiplayer</option>
-            <option value="cooperative">Cooperative</option>
-            <option value="remote-play">Remote Play</option>
-            </select>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center">Updating {{game.title}}</h2>
+            <div id="celeb-create">
+                <form action="/games/{{game._id}}/edit" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Title:</label>
+                        <input type="text" class="form-control" name="title" value="{{game.title}}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category:</label>
+                        <select class="form-select" name="category" multiple>
+                            <option value="1-player">1 Player</option>
+                            <option value="multiplayer">Multiplayer</option>
+                            <option value="cooperative">Cooperative</option>
+                            <option value="remote-play">Remote Play</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description:</label>
+                        <textarea class="form-control" name="description" rows="4">{{game.description}}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mode:</label>
+                        <select class="form-select" name="mode" multiple>
+                            <option value="RPG">RPG</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Strategy">Strategy</option>
+                            <option value="Action">Action</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+            <div class="text-center mt-3">
+                <a href="/" class="btn btn-secondary">Home Page</a>
+            </div>
         </div>
-        
-        <label> Description:
-            <textarea title="description" cols="30" rows="4">{{game.description}}</textarea>
-        </label>
-        
-        <div>
-            <label for="mode">Choose the mode:</label>
-            <select title="mode" id="mode" multiple>
-            <option value="RPG">RPG</option>
-            <option value="Sports">Sports</option>
-            <option value="Strategy">Strategy</option>
-            <option value="Action">Action</option>
-            </select>
-        </div>
-
-        <button type="submit">Save changes</button>
-        </form>
     </div>
-    <a href="/">Home Page</a>
 </div>

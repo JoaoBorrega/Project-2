@@ -5,7 +5,6 @@ require("dotenv").config();
 // ℹ️ Connects to the database
 require("./db");
 
-
 // Add this line to import the 'path' module
 const path = require('path');
 
@@ -46,6 +45,7 @@ app.use('/', profile);
 
 const reviewsRoutes = require('./routes/reviews.routes')
 app.use('/', reviewsRoutes)
+
 
 // Set up the views directory and view engine
 app.set('views', path.join(__dirname, 'views'));

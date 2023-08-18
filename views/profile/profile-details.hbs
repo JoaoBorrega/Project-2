@@ -1,18 +1,30 @@
-<div>
-    <h2>{{chosenProfile.title}} details</h2>
-    <section>
-        <div>
-            <h4>Usertitle: {{chosenProfile.usertitle}}</h4>
-            <p>Email: {{chosenProfile.email}}</p>
-            <p>Password: {{chosenProfile.password}}</p>
-        </div>
-        <div>
-            {{#each chosenProfile.mode}}
-                <div>
-                    <h4>Usertitle: {{this.usertitle}}</h4>
-                    <p>Email: {{this.email}}</p>
-                    <p>Password: {{this.password}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center">{{chosenProfile.title}} details</h2>
+            <section class="mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Usertitle: {{chosenProfile.usertitle}}</h4>
+                        <p>Email: {{chosenProfile.email}}</p>
+                        <p>Password: {{chosenProfile.password}}</p>
+                    </div>
                 </div>
-            {{/each}}
-    <a href="/">Home Page</a>
+                <div class="mt-3">
+                    {{#each chosenProfile.mode}}
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h4 class="card-title">Usertitle: {{this.usertitle}}</h4>
+                            <p>Email: {{this.email}}</p>
+                            <p>Password: {{this.password}}</p>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </section>
+            <div class="text-center mt-3">
+                <a href="/" class="btn btn-primary">Home Page</a>
+            </div>
+        </div>
+    </div>
 </div>

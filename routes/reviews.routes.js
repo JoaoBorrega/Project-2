@@ -89,23 +89,24 @@ router.post("/removeReviews/:reviewId",async (req, res)=>{
 */
 router.get('/reviews', async (req, res) => {
     try {
-        const user = req.session.currentUser
-        if(user){
-            // Find the user by their ID and populate their reviews
-            const userInfo = await User.findById(user._id).populate('reviews')
-            // Populate the 'reviews' field within each review
-            await userInfo.populate('reviews')
-            
-            // Render the 'reviews/reviews' template with the reviews and usertitle
-            res.render('reviews/reviews', { reviews: userInfo.reviews,usertitle: userInfo.usertitle })
+        const user = req.session.currentUser;
+        if (user) {
+            const userInfo = await User.findById(user._id).populate({
+                path: 'reviews',
+                populate: {
+                    path: 'game',
+                },
+            });
+
+            console.log(userInfo.reviews); // Check the reviews data
+
+            res.render('reviews/reviews', { reviews: userInfo.reviews, usertitle: userInfo.usertitle });
+        } else {
+            res.redirect('/');
         }
-        else{
-            res.redirect('/')
-        }
-        
-        
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
-})
+});
+
 module.exports = router;

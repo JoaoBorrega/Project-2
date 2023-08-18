@@ -1,25 +1,24 @@
-
-    <h1>{{usertitle}} All Reviews</h1>
+<div class="container d-flex justify-content-center">
+  <div class="mt-5">
+    <h1>{{usertitle}}: All Reviews</h1>
     <ul>
-        {{#each reviews}}
-        <li>
-            <h1>{{../usertitle}}</h1>
-            <h2>{{this.title}}</h2>
-            <h2>Description: {{this.content}}</h2>
-            <img src="/images/{{this.image}}"> 
-
-        <hr>
-            
+      {{#each reviews}}
+      <li>
+        <h2>{{../usertitle}}</h2>
+        <h3>{{this.title}}</h3>
+        <img src={{this.image}}  class="img-fluid" alt="Game Image">
+        
+        <p>Review: {{this.content}}</p>
+        
         <form action="/review/delete/{{this._id}}" method="post">
-            <button type="submit">Remove</button>
+          <button type="submit" class="btn btn-danger">Remove</button>
         </form>
 
-        </li>
-        {{/each}}
-        
+        <hr>
+      </li>
+      {{/each}}
     </ul>
-    <a href="/games">Games list</a>
-    <a href="/">Home</a>
-    <script>
-
-</script>
+    <a href="/games" class="btn btn-primary">Games list</a>
+    <a href="/" class="btn btn-primary">Home</a>
+  </div>
+</div>

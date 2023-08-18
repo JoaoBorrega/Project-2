@@ -14,7 +14,12 @@ router.get('/profile', async (req, res) => {
         
         // await chosenProfile.populate('mode');
 
-        res.render('profile/profile', chosenProfile)
+        res.render('profile/profile', {
+            usertitle: chosenProfile.usertitle,
+            email: chosenProfile.email,
+            password: chosenProfile.password,
+            profileImage: chosenProfile.profileImage
+        })
     }
     catch(error){console.log(error)}
 })

@@ -1,8 +1,206 @@
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GameVerse</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Masthead -->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Our Game Universe!</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                <img src="https://www.worldipreview.com/media/image/main_shutterstock_1705733206_bondart-photography.jpg" alt="Game Image">
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">What are we?</h2>
+                    <h3 class="section-subheading text-muted">A website with the latest Games and Reviews</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Games Info</h4>
+                        <p class="text-muted">We give you updated reviews</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Client Orientated</h4>
+                        <p class="text-muted">You can help us updating the games list</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Save Your preferences</h4>
+                        <p class="text-muted">You can save your preferences and reviews</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Top 3</h2>
+                    <h3 class="section-subheading text-muted">Here you have the opportunity to see the three bests</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                                <img class="img-fluid" src="https://i.ibb.co/MSpJgKj/GT7.webp" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                                <img class="img-fluid" src="https://i.ibb.co/Lrht06j/GTA.webp" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 3-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                                <img class="img-fluid" src="https://i.ibb.co/pj1hzjQ/elden-ring.webp" alt="..." />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Games Page -->
+        <section class="page-section" id="portfolio2" style="margin-bottom: 50px;">
+            <div class="container">
+                <div class="text-center">
+                    <a href="/games/{{_id}}" class="section-heading text-uppercase games-link">
+                        <h2>Games</h2>
+                    </a>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="image-container">
+                            <img class="img-fluid" src="https://cdn.gaminggorilla.com/wp-content/uploads/2020/06/The-Most-Popular-Games-of-All-Time.jpg" alt="Game Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section bg-light" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About Us</h2>
+                    <h3 class="section-subheading text-muted">How the journey began untill now</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://www.rewrittenlife.com/wp-content/uploads/2018/07/life-journey.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h2>Beginning of July</h2>
+                                <h4 class="subheading">Our Humble Beginnings</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">At this time, we entered in a bootcamp to learn how to code.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://www.freecodecamp.org/news/content/images/size/w1000/2021/04/image-139.png" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h2>End of July</h2>
+                                <h4 class="subheading">What was happening at the end of the month</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">At this time, we were already starting to have magic fingers, making bigger codes and some games.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://ctl.gatech.edu/sites/default/files/hg_media/website.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h2>Middle of August</h2>
+                                <h4 class="subheading">Did we continue to improve our capacities?</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Of course we continued. And that led us to start our own website, that we all can enjoy and interact.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://quotefancy.com/media/wallpaper/800x450/132054-Rumi-Quote-The-garden-of-the-world-has-no-limits-except-in-your.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h2>September</h2>
+                                <h4 class="subheading">What are our expectations</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">At this point, we want to discover what the future reserves for us, keep improving our skills and our website and hope that this learning line keeps growing. </p></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Team-->
+    <section class="page-section bg-light" id="team">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                <h3 class="section-subheading text-muted">Know us a little betterH</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mx-auto">
+                    <div class="team-member text-center">
+                        <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
+                        <h4>João Borrega</h4>
+                        <p class="text-muted">Web Developer</p>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mx-auto">
+                    <div class="team-member text-center">
+                        <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
+                        <h4>Mehdi Nader</h4>
+                        <p class="text-muted">Web Developer</p>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>    
+</html>
 
 
 <!-- <a href="/types">Types Page</a> -->
-<a href="/games/create">Create a game</a>
-<a href="/games">Check games list</a>
-
+    <a href="/games/create">Create a game</a>
+    <a href="/games">Check games list</a>
 
