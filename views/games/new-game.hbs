@@ -1,41 +1,48 @@
-<div>
-    <h2>New Game</h2>
-    <div id="celeb-create">
-        <form action="/games/create" method="post">
-        <label> Title:
-            <input type="text" title="title" />
-        </label>
-        
-        <div>
-            <label for="category">Choose the category:</label>
-            <select title="category" id="mode" multiple>
-            <option value="1-player">1 Player</option>
-            <option value="multiplayer">Multiplayer</option>
-            <option value="cooperative">Cooperative</option>
-            <option value="remote-play">Remote Play</option>
-            </select>
-        </div>
+<div class="container mt-5">
+  <h2 class="text-center">New Game</h2>
+  <div id="celeb-create">
+    <form action="/games/create" method="post">
 
-        <label> Description:
-            <textarea title="description" cols="30" rows="4"> </textarea>
-        </label>
-        
-        <div>
-            <label for="mode">Choose the mode:</label>
-            <select title="mode" id="mode" multiple>
-            <option value="RPG">RPG</option>
-            <option value="Sports">Sports</option>
-            <option value="Strategy">Strategy</option>
-            <option value="Action">Action</option>
-            </select>
-        </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" class="form-control" id="title" name="title">
+      </div>
 
-        <input type="file" title="gameImage">
-        <button type="submit">Create Game</button>
+      <div class="mb-3">
+        <label for="category" class="form-label">Choose the category:</label>
+        <select class="form-select" id="category" name="category" multiple>
+          <option value="1-player">1 Player</option>
+          <option value="multiplayer">Multiplayer</option>
+          <option value="cooperative">Cooperative</option>
+          <option value="remote-play">Remote Play</option>
+        </select>
+      </div>
 
-        <button type="submit"> Save entry </button>
-        </form>
-    </div>
-    <a href="/games">Games list</a>
-    <a href="/">Home Page</a>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="mode" class="form-label">Choose the mode:</label>
+        <select class="form-select" id="mode" name="mode" multiple>
+          <option value="RPG">RPG</option>
+          <option value="Sports">Sports</option>
+          <option value="Strategy">Strategy</option>
+          <option value="Action">Action</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="gameImage" class="form-label">Game Image:</label>
+        <input type="file" class="form-control" id="gameImage" name="gameImage">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Create Game</button>
+    </form>
+  </div>
+  <div class="text-center mt-3">
+    <a href="/games" class="btn btn-secondary">Games List</a>
+    <a href="/" class="btn btn-secondary">Home Page</a>
+  </div>
 </div>
